@@ -6,7 +6,7 @@ var express 		= require('express'),
 	usersController	= require('./server/controllers/users');
 
 //connect mongodb
-mongoose.connect('mongodb://heroku_mc6krdg2:colong@1986@ds047642.mongolab.com:47642/heroku_mc6krdg2');
+mongoose.connect('mongodb://toandm:colong1986@ds047642.mongolab.com:47642/heroku_mc6krdg2');
 
 // create reusable transporter object using SMTP transport
 var transporter = mailer.createTransport({
