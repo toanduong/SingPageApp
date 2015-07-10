@@ -353,7 +353,7 @@ a:focus {
 }
 
 .light-gray-bg {
-  background-color: #fafafa;
+  background-color: #f2efef;
   border-top: 1px solid #f3f3f3;
   border-bottom: 1px solid #f3f3f3;
 }
@@ -662,9 +662,10 @@ body {
 }
 
 .prec{
-    top: 45px;
+    text-align: center;
+    top: 60px;
     position: relative;
-    font-size: 36px;
+    font-size: 18px;
 }
 
 .circle{

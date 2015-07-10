@@ -1,3 +1,4 @@
+var http 			= require('http');
 var express 		= require('express'),
 	app				= express(),
 	mailer			= require('nodemailer'),
@@ -5,8 +6,10 @@ var express 		= require('express'),
 	mongoose 		= require('mongoose'),
 	usersController	= require('./server/controllers/users');
 
+var port = process.env.PORT || 5000
+
 //connect mongodb
-mongoose.connect('mongodb://toandm:colong1986@ds047642.mongolab.com:47642/heroku_mc6krdg2');
+mongoose.connect('mongodb://toandm:colong1986@ds047812.mongolab.com:47812/heroku_h651qktt');
 
 // create reusable transporter object using SMTP transport
 var transporter = mailer.createTransport({
@@ -19,8 +22,8 @@ var transporter = mailer.createTransport({
 
 
 //register bodyParser
-app.use(bodyParser());
-
+//app.use(bodyParser());
+app.use(express.static(__dirname + "/"))
 //use font
 app.use("/fonts", express.static(__dirname + '/public/fonts'));
 
@@ -61,13 +64,13 @@ app.get('/api/sendmail', function(req, res){
 		var results = [];
 		results.push(info);
 	    if(error){
-			res.json('error');
+			results.push(error);
+			res.json(results);
 	    }else{
 			res.json(results);
 	    }
 	});
 });
 
-app.listen(3000, function() {
-	console.log('server listening...');
-});
+var server = http.createServer(app);
+server.listen(port);
